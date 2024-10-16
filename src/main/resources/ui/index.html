@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #nav {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #nav li {
+            float: left;
+        }
+
+        #nav li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        #nav li a:hover {
+            background-color: darkslategray;
+            color: white;
+        }
+
+        #content {
+            display: block;
+            clear: both;
+        }
+
+        #calendar-container {
+            width: 100%;
+        }
+
+        #chat-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #chat-window {
+            flex: 1;
+            overflow-y: scroll;
+            min-height: 90%;
+            width: 100%;
+        }
+
+        #chat-controls {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        #chat-controls input {
+            width: 80%;
+            padding: 10px;
+            box-sizing: border-box;
+            float: left;
+        }
+
+        #chat-controls button {
+            width: 20%;
+            padding: 10px;
+            box-sizing: border-box;
+            float: left;
+        }
+
+        #send {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="top" id="hud">
+        <div id="nav-toggle"></div> <!-- toggle button for nav -->
+        <div id="weather-display"></div> <!-- hud of today's weather -->
+        <div id="location"></div> <!-- hud of current location -->
+    </div>
+    <div class="center" id="content">
+        <!--
+            navigation bar
+                should be hidden by default
+                toggle should only take over div#content by 40% of width
+                should slide out from the left
+        -->
+        <ul id="nav">
+            <li id="calendar"><a>calendar</a></li> <!-- toggle calendar display -->
+        </ul>
+        <!--
+            calendar display
+                should be hidden by default
+                toggle should only take over div#content by 60% of height
+                should slide down from the top
+        -->
+        <div class="app-content" id="calendar-container">
+            <div id="calendar-display"></div>
+        </div>
+        <!--
+            email display
+                should be statically displayed
+                it should take up the full height and width of div#content while leaving some room for the div#ai-intercom
+                it should be scrollable
+                it should have the lowest z-index so that the calendar and chat can be displayed on top of it
+        -->
+        <div class="app-content"  id="chat-container">
+            <div id="chat-window"></div>
+            <div id="chat-controls">
+                <label for="message"></label><input id="message" placeholder="Type your message here" type="text"/>
+                <button id="send">Send</button>
+            </div>
+        </div>
+    </div>
+    <!--
+        should be statically displayed
+        it should be centered at the bottom of the screen
+        it should have the highest z-index so that it can be displayed on top all other divs in div#content
+    -->
+    <div class="bottom" id="assistant">
+        <div id="ai-intercom"></div>
+    </div>
+</body>
+</html>
