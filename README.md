@@ -1,7 +1,7 @@
 # Spring AI with OpenAI
 
 This project contains a web service that will accept HTTP GET requests at
-`http://localhost:8080/ai/simple`.
+`http://localhost:8080/ai`.
 
 There is optional `message` parameter whose default value is "Tell me a joke".
 
